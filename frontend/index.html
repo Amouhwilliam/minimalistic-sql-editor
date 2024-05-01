@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple SQL Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SQL Editor</h1>
+
+        <div id="message" class="message" style="display: none;">
+            <span id="messageContent"></span>
+            <span class="close" onclick="closeMessage()">&times;</span>
+        </div>
+        <div id="error" class="error" style="display: none;">
+            <span id="errorContent"></span>
+            <span class="close" onclick="closeError()">&times;</span>
+        </div>
+        
+        <div class="editor">
+            <label for="queryInput">
+                <textarea id="queryInput" placeholder="Enter your SQL query here..."></textarea>
+            </label>
+            <button onclick="runQuery()">Run Query</button>
+        </div>
+        <div class="results">
+            <div class="result-header">
+                <h2>Query Results</h2>
+                <span class="close" onclick="closeResults()">&times;</span>
+            </div>
+            <table id="queryResults">
+                <!-- Query results will be displayed here -->
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

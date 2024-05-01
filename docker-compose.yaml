@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+
+  nginx: #to override in production
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8000:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+
+  api:
+    image: node:20.11.1
+    container_name: api-container
+    restart: always
+    working_dir: /app
+    env_file:
+      - .env
+    environment:
+      PORT: ${API_PORT}
+    ports:
+      - ${API_PORT}:${API_PORT}
+    volumes:
+      - ./api:/app
+    command: bash -c "yarn && yarn start " # install node modules and start server
